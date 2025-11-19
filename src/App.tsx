@@ -1,4 +1,4 @@
-import { ChevronDown, Building2, Package, Users, Truck } from 'lucide-react';
+import { ChevronDown, Building2, Users, Truck } from 'lucide-react';
 import { useState } from 'react';
 
 export default function App() {
@@ -51,15 +51,15 @@ export default function App() {
       <section className="py-24 px-6 bg-slate-50">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h1 className="text-gray-900 mb-6">Recover refunds on tariffs you never should have paid.</h1>
+            <h1 className="text-gray-900 mb-6 text-5xl font-bold">Duty Drawbacks, Made Easy</h1>
             <p className="text-gray-600 mb-12 text-xl">
-              We review your past imports and identify entries eligible for tariff drawback, then prepare the documentation needed to file claims and recover duties.
+              The #1 platform for customs brokers and logistics experts to unlock hidden cash flows.
             </p>
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <a href="#contact" className="inline-block px-8 py-3 bg-blue-900 text-white hover:bg-blue-800 transition-colors">
-                Check refund eligibility
+                Get Started
               </a>
-              <a href="mailto:info@example.com" className="inline-block px-8 py-3 text-blue-900 hover:text-blue-800">
+              <a href="mailto:contact@turbodrawback.com" className="inline-block px-8 py-3 text-blue-900 hover:text-blue-800">
                 Email us
               </a>
             </div>
@@ -82,17 +82,34 @@ export default function App() {
       <section id="who-we-help" className="py-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-gray-900 mb-16 text-center">Who we help</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { Icon: Building2, title: "Importers of record", desc: "Companies importing goods who may have overpaid duties due to classification errors, tariff changes, or eligibility for preference programs." },
-              { Icon: Package, title: "Small and mid-sized brands", desc: "Businesses without in-house customs expertise who need help identifying and recovering overpaid tariffs." },
-              { Icon: Users, title: "Customs brokers", desc: "Brokers looking to provide additional value to clients through tariff recovery analysis and documentation support." },
-              { Icon: Truck, title: "Logistics teams", desc: "Supply chain professionals seeking to reduce landed costs and identify opportunities for duty recovery." }
-            ].map(({ Icon, title, desc }) => (
-              <div key={title} className="bg-white p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-                <Icon className="w-8 h-8 text-blue-900 mb-4" strokeWidth={1.5} />
-                <h3 className="text-gray-900 mb-3">{title}</h3>
-                <p className="text-gray-600">{desc}</p>
+              { Icon: Building2, title: "Customs brokers" },
+              { Icon: Users, title: "Importers of record" },
+              { Icon: Truck, title: "Logistics teams" }
+            ].map(({ Icon, title }) => (
+              <div key={title} className="bg-white p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow text-center">
+                <Icon className="w-8 h-8 text-blue-900 mb-4 mx-auto" strokeWidth={1.5} />
+                <h3 className="text-gray-900">{title}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What We Offer */}
+      <section className="py-24 px-6 bg-slate-50">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-gray-900 mb-16 text-center">What we offer</h2>
+          <div className="space-y-12">
+            {[
+              { title: "Automated claim spotting for brokers", desc: "We scan your clients' import and export data to flag drawback-eligible entries and pairings, so you're not manually digging through ACE, 7501s, and invoices." },
+              { title: "Centralized evidence and CBP-ready files", desc: "We track timelines, quantities, and matches in one place and generates CBP-ready schedules, summaries, and backup, organized the way reviewers expect to see it." },
+              { title: "Make small claims worth your time", desc: "By batching low-value opportunities and automating the paper chase, we turn \"not worth it\" claims into repeatable revenue for your brokerage." }
+            ].map(({ title, desc }) => (
+              <div key={title}>
+                <h3 className="text-gray-900 mb-4 text-xl font-bold">{title}</h3>
+                <p className="text-gray-600 text-lg">{desc}</p>
               </div>
             ))}
           </div>
@@ -100,7 +117,7 @@ export default function App() {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-24 px-6 bg-slate-50">
+      <section id="how-it-works" className="py-24 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-gray-900 mb-16 text-center">How it works</h2>
           <div className="relative">
@@ -122,25 +139,6 @@ export default function App() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* What We Offer */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-gray-900 mb-16 text-center">What we offer</h2>
-          <div className="space-y-12">
-            {[
-              { title: "Identifying eligible entries", desc: "We conduct a thorough review of your import history to identify entries that qualify for tariff drawback under manufacturing, unused merchandise, or rejected merchandise provisions. Our analysis includes checking for classification errors, preferential trade agreement eligibility, and other opportunities for duty recovery." },
-              { title: "Preparing documentation and summaries", desc: "We prepare all required documentation including detailed summaries of eligible entries, supporting evidence, and the necessary forms and schedules. Our work product is organized and ready to file, reducing the burden on your internal team or customs broker." },
-              { title: "Coordinating with your existing broker or counsel", desc: "We work alongside your current customs broker, freight forwarder, or legal counsel. Our role is to support your team with specialized analysis and documentation, not to replace your existing relationships. We communicate clearly and provide materials in formats that integrate smoothly with your current processes." }
-            ].map(({ title, desc }) => (
-              <div key={title}>
-                <h3 className="text-gray-900 mb-4 text-xl">{title}</h3>
-                <p className="text-gray-600 text-lg">{desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -211,8 +209,8 @@ export default function App() {
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto text-lg">
             All inquiries are handled confidentially. We're happy to answer questions about your specific situation and provide an initial assessment at no cost.
           </p>
-          <a href="mailto:contact@tariffrecovery.com" className="text-blue-900 hover:text-blue-800 text-lg">
-            contact@tariffrecovery.com
+          <a href="mailto:contact@turbodrawback.com" className="text-blue-900 hover:text-blue-800 text-lg">
+            contact@turbodrawback.com
           </a>
         </div>
       </section>
