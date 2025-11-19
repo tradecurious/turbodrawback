@@ -1,3 +1,4 @@
+import { supabase } from './lib/supabase';
 import { ChevronDown, Building2, Users, Truck } from 'lucide-react';
 import { useState } from 'react';
 
@@ -6,14 +7,26 @@ export default function App() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
+  const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      // Send to your backend or email service (you'll implement this)
-      console.log('Email submitted:', email);
-      setSubmitted(true);
-      setEmail('');
-      setTimeout(() => setSubmitted(false), 3000);
+    if (!email) return;
+
+    try {
+      const { error } = await supabase
+        .from('emails')
+        .insert([{ email }]);
+
+      if (error) {
+        console.error('Error:', error);
+        alert('Error subscribing');
+      } else {
+        setSubmitted(true);
+        setEmail('');
+        setTimeout(() => setSubmitted(false), 3000);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error subscribing');
     }
   };
 
