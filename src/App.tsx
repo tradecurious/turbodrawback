@@ -3,6 +3,19 @@ import { useState } from 'react';
 
 export default function App() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+  const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      // Send to your backend or email service (you'll implement this)
+      console.log('Email submitted:', email);
+      setSubmitted(true);
+      setEmail('');
+      setTimeout(() => setSubmitted(false), 3000);
+    }
+  };
 
   const faqs = [
     {
@@ -56,13 +69,27 @@ export default function App() {
               The #1 platform for customs brokers and logistics experts to unlock hidden cash flows.
             </p>
             <div className="flex flex-col sm:flex-row items-start gap-4">
-              <a href="#contact" className="inline-block px-8 py-3 bg-blue-900 text-white hover:bg-blue-800 transition-colors">
-                Get Started
-              </a>
-              <a href="mailto:contact@turbodrawback.com" className="inline-block px-8 py-3 text-blue-900 hover:text-blue-800">
+              <form onSubmit={handleEmailSubmit} className="flex gap-2 w-full sm:w-auto">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="px-4 py-3 border border-gray-300 rounded text-gray-900 placeholder-gray-500 flex-1 sm:flex-none"
+                />
+                <button
+                  type="submit"
+                  className="px-8 py-3 bg-blue-900 text-white hover:bg-blue-800 transition-colors whitespace-nowrap"
+                >
+                  Get Started
+                </button>
+              </form>
+              <a href="mailto:contact@turbodrawback.com" className="px-8 py-3 text-blue-900 hover:text-blue-800">
                 Email us
               </a>
             </div>
+            {submitted && <p className="text-green-600 mt-4">Thanks! We'll be in touch soon.</p>}
           </div>
           <div className="hidden md:block relative w-full h-96">
             <div className="relative w-72 h-72 mx-auto mt-12">
