@@ -32,8 +32,12 @@ export default function App() {
 
   const faqs = [
     {
-      q: "What types of imports are eligible for tariff drawback?",
-      a: "Drawback may be available for imported merchandise that was subsequently exported, destroyed under customs supervision, or manufactured into a different product that was then exported. Eligibility also depends on specific tariff provisions, trade agreements, and the timing of imports and exports. We review your specific circumstances to determine what qualifies."
+      q: "What imports are eligible for duty drawbacks",
+      a: "Imports can usually get duty drawback when the goods (or what they're turned into) end up leaving the U.S. again. That covers goods that were exported unused, goods used to make products you exported, and defective goods that were exported or destroyed instead of sold here."
+    },
+    {
+      q: "What imports are eligible for tariff refunds",
+      a: "Any tariffs paid because of unlawful tariff policies. On November 5, 2025, the Supreme Court heard arguments presenting why many of the Administration's China tariffs were unlawful. The Court is now considering whether to declare those tariffs unlawful, which would entitle importers who paid duties to get refunds."
     },
     {
       q: "How far back can we claim refunds?",
@@ -53,7 +57,7 @@ export default function App() {
     },
     {
       q: "What information do you need to get started?",
-      a: "We need access to your import entry data, including entry numbers, dates, HTS classifications, and duty amounts paid. Commercial invoices, bills of lading, and any export documentation are also helpful. We can work with data exports from your customs broker or freight forwarder, and we provide a detailed list of required documents once we begin."
+      a: "Use our secure portal to submit your Entry Summary, a commercial invoice, and (if available) a bill of lading. We'll process the claim from there and contact you if any other documentation is required."
     }
   ];
 
